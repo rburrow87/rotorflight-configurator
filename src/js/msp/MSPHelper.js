@@ -49,6 +49,8 @@ function MspHelper() {
         'RUNCAM_DEVICE_CONTROL': 14,
         'LIDAR_TF': 15,
         'FRSKY_OSD': 16,
+        'DPRINTF': 17,
+        'SBUS_OUT': 18,
     };
 
     self.REBOOT_TYPES = {
