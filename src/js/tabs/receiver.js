@@ -482,7 +482,7 @@ tab.initialize = function (callback) {
     if (semver.lt(FC.CONFIG.apiVersion, API_VERSION_12_7)) {
         this.telemetryProtoSensors.find((x) => x.name === 'FrSky S.Port').sensors = 0x007FFFFF;
         this.rxProtocols.find((x) => x.name === 'FrSky F.PORT').telemetry = 0x007FFFFF;
-        this.rxProtocols.find((x) => x.name === 'FrSky FBUS').visible = false; // likely need a later API in the future
+        this.rxProtocols.find((x) => x.name === 'FrSky FBUS').visible = false;  // this will likely need the API version bumped later
     } else {
         this.telemetryProtoSensors.find((x) => x.name === 'FrSky S.Port').sensors = 0xFFFFFFFF;
         this.rxProtocols.find((x) => x.name === 'FrSky F.PORT').telemetry = 0xFFFFFFFF;
