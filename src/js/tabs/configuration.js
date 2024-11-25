@@ -396,7 +396,9 @@ tab.initialize = function (callback) {
 
             for (const func of portFunctions) {
                 const funcName = i18n.getMessage('portsFunction_' + func.name);
-                funcElement.append(`<option value="${func.id}">${funcName}</option>`);
+                if (func.name !== 'SBUS_OUT' || semver.gte(FC.CONFIG.apiVersion, API_VERSION_12_7)) { // this will likely need the API version bumped later
+                    funcElement.append(`<option value="${func.id}">${funcName}</option>`);
+                }
             }
 
             if (!get_port_func(serialPort.functionMask)) {
