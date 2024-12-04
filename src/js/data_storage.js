@@ -23,7 +23,7 @@ const API_VERSION_RTFL_MIN = API_VERSION_12_6;
 const API_VERSION_RTFL_MAX = API_VERSION_12_8;
 
 const FW_VERSION_RTFL_MIN = '4.3.0-0';
-const FW_VERSION_RTFL_MAX = '4.4.99';
+const FW_VERSION_RTFL_MAX = '4.5.99';
 
 const CONFIGURATOR = {
     // all versions are specified and compared using semantic versioning http://semver.org/
