@@ -481,17 +481,20 @@ const tab = {
 tab.initialize = function (callback) {
     const self = this;
 
-    if (semver.lt(FC.CONFIG.apiVersion, API_VERSION_12_8)) {
-        this.rxProtocols.find((x) => x.name === 'FrSky FBUS').visible = false;
-        this.rxProtocols.find((x) => x.name === 'FrSky F.PORT2').visible = false;
-    }
-
     if (semver.lt(FC.CONFIG.apiVersion, API_VERSION_12_7)) {
         this.telemetryProtoSensors.find((x) => x.name === 'FrSky S.Port').sensors = 0x007FFFFF;
         this.rxProtocols.find((x) => x.name === 'FrSky F.PORT').telemetry = 0x007FFFFF;
     } else {
         this.telemetryProtoSensors.find((x) => x.name === 'FrSky S.Port').sensors = 0xFFFFFFFF;
         this.rxProtocols.find((x) => x.name === 'FrSky F.PORT').telemetry = 0xFFFFFFFF;
+    }
+
+    if (semver.lt(FC.CONFIG.apiVersion, API_VERSION_12_8)) {
+        this.rxProtocols.find((x) => x.name === 'FrSky F.PORT2').visible = false;
+        this.rxProtocols.find((x) => x.name === 'FrSky FBUS').visible = false;
+    } else {
+        this.rxProtocols.find((x) => x.name === 'FrSky F.PORT2').visible = true;
+        this.rxProtocols.find((x) => x.name === 'FrSky FBUS').visible = true;
     }
 
     load_data(load_html);
